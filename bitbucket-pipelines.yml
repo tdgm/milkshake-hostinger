@@ -1,0 +1,10 @@
+image: node:10.15.3
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Copy
+          script:
+            - apt-get update
+            - apt-get install -y rsync
+            - rsync -rvP --del . ubuntu@www.weseekfood.com://var/www/html/pizzanaroca/
